@@ -42,10 +42,11 @@ async def main():
     token_endpoint = os.getenv("TOKEN_ENDPOINT")
     scopes = None
     token = await get_bearer_token(client_id, client_secret, token_endpoint, scopes)
-    
+    print("\nObtained Bearer Token:", token)
+
     async with streamablehttp_client(
         "http://localhost:8000/mcp",
-         auth=BearerAuth(token=token)
+        auth=BearerAuth(token=token)
         ) as ( read_stream, write_stream, _ ): 
             async with ClientSession(
                 read_stream,
