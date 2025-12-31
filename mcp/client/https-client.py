@@ -45,7 +45,7 @@ async def main():
     
     async with streamablehttp_client(
         "http://localhost:8000/mcp",
-        auth=BearerAuth(token)
+        auth=BearerAuth(token=token)
         ) as ( read_stream, write_stream, _ ): 
             async with ClientSession(
                 read_stream,
