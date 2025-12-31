@@ -10,4 +10,6 @@ dependencies = [
     "httpx>=0.28.1",
     "mcp[cli]>=1.25.0",
     "modelcontextprotocol>=1.0.1",
+    "openai>=2.14.0",
+    "openai-agents>=0.6.4",
 ]
