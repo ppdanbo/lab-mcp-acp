@@ -1,0 +1,23 @@
+{
+"mcpServers":{
+	"Greeting": {
+		"command": "C:\\Users\\danbo\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\mcp.exe",
+		"args":[
+			"run",
+			"C:\\project_mcpserver_lab\\lab-mcp-acp\\tool\\server.py"
+			],
+		 "env":{
+			"API_KEY": "sk-xxxx",
+			"MODEL": "claude-2",
+			"PORT": "8080"
+		 }
+		},
+	"Prompting": {
+		"command": "C:\\Users\\danbo\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\mcp.exe",
+		"args":[
+			"run",
+			"C:\\project_mcpserver_lab\\lab-mcp-acp\\prompttool\\server.py"
+			]		
+		}
+	}
+}
