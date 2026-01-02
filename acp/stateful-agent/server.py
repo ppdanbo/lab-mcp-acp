@@ -1,5 +1,5 @@
 from acp_sdk.server import Server, Context
-from acp_sdk.models import Message
+from acp_sdk.models import Message, MessagePart
 
 from beeai_framework.backend import ChatModel , UserMessage
 from beeai_framework.agents.react import ReActAgent
@@ -26,7 +26,12 @@ async def chat(chat_prompt: Message , context:Context) -> str:
 
     # end changes for session management
 
-    response = await agent.run(prompt=chat_prompt[0].parts[0].content)
-    return response.result.text
+    # response = await agent.run(prompt=chat_prompt[0].parts[0].content)
+    # print(f"chat_prompt: {chat_prompt}")
+    response = await agent.run(chat_prompt[0].parts[0].content)
+    final_answer = response.iterations[-1].state.final_answer
+    print(f"\nFinal Answer: {final_answer}")
+    return final_answer
+
 
 server.run() 

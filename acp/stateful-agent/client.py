@@ -5,10 +5,11 @@ from acp_sdk.models import Message, MessagePart
 
 async def session_example() -> None:
     async with Client(base_url="http://localhost:8000") as client, client.session() as session:
-        run = await session.run_sync(agent="chat", input=[Message(parts=[MessagePart(content="Hello, my name is Aref!")])])
-        run = await session.run_sync(agent="chat", input=[Message(parts=[MessagePart(content="Say a joke, with my name in it!")])])
-
-        print(run.output[0].parts[0].content)
+        #run = await client.run_sync(agent="NameAgent", input=Message(parts=[MessagePart(content="Danbo")]))
+        run = await session.run_sync(agent="chat", input=Message(parts=[MessagePart(content="Hello, my name is Danbo!")]))
+        run = await session.run_sync(agent="chat", input=Message(parts=[MessagePart(content="Say a joke, with my name in it!")]))
+        print(f"Client output: {run.output[-1].parts[0].content}")
+        
 
 if __name__ == "__main__":
     asyncio.run(session_example())
