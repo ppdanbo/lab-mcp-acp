@@ -6,8 +6,8 @@ from acp_sdk.models import Message , MessagePart
 
 async def example() -> None:
     async with Client(base_url="http://localhost:8090") as client:
-        #run = await client.run_sync(agent="NameAgent", input=Message(parts=[MessagePart(content="Danbo")]))
-        run = await client.run_sync(agent="NameAgent", input="Danbo")
+        run = await client.run_sync(agent="NameAgent", 
+                                    input=Message(parts=[MessagePart(content="Danbo"), MessagePart(content="Bob")]))      
         print(run)
         print(f"\n{run.output[0].parts[0].content}")
 
