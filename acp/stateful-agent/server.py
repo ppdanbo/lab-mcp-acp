@@ -16,11 +16,11 @@ async def chat(chat_prompt: Message , context:Context) -> str:
     memory = TokenMemory(llm)
     agent = ReActAgent(llm=llm, tools=[], memory=memory)
 
-    # changes for session management
-
+    # changes for acp session management
     history = context.session.load_history()
     history_messages = [message async for message in history]
 
+    # beeai framework
     framework_messages = [UserMessage(str(message)) for message in history_messages] # Different for non-BEE AI frameworks.
     await agent.memory.add_many(framework_messages)
 
