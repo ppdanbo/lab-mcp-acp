@@ -25,13 +25,6 @@ async def nameagent(names: Message) -> str:
 # Get the ASGI app from ACP
 app = server.app
 
-server.run(
-    # ssl_keyfile=key_file,
-    # ssl_certfile=crt_file
-    ssl_keyfile="./localhost.key",
-    ssl_certfile="./localhost.crt"
-    )
-
 # Run uvicorn with SSL (THIS is the key)
 uvicorn.run(
     app,
