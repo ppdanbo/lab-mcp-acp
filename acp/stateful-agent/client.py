@@ -4,9 +4,9 @@ from acp_sdk.client import Client
 from acp_sdk.models import Message, MessagePart
 
 async def session_example() -> None:
-    async with Client(base_url="http://localhost:8000") as client, client.session() as session:
+    async with Client(base_url="http://localhost:9000") as client, client.session() as session:
         #run = await client.run_sync(agent="NameAgent", input=Message(parts=[MessagePart(content="Danbo")]))
-        run = await session.run_sync(agent="chat", input=Message(parts=[MessagePart(content="Hello, my name is Danbo!")]))
+        run = await session.run_sync(agent="chat", input=Message(parts=[MessagePart(content="Hello, my name is Aref!")]))
         run = await session.run_sync(agent="chat", input=Message(parts=[MessagePart(content="Say a joke, with my name in it!")]))
         print(f"Client output: {run.output[-1].parts[0].content}")
         
